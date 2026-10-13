@@ -724,19 +724,42 @@
             }
 
             #start footer {
-                height: clamp(155px, 25vh, 205px);
-                height: clamp(155px, 25svh, 205px);
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: auto;
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                max-width: 340px;
+                margin: 0 auto;
+                box-sizing: border-box;
+                z-index: 20;
             }
 
             #start .badge {
-                font-size: clamp(9px, 2.45vw, 18px);
-                padding: 9px clamp(14px, 3.6vw, 28px);
+                position: static;
+                width: auto;
+                max-width: none;
+                min-height: 0;
+                box-sizing: border-box;
+                white-space: nowrap;
+                font-size: clamp(9px, 2.6vw, 13px);
+                line-height: 1.2;
+                padding: 12px 8px;
+                border-radius: 999px;
+                box-shadow: none;
+                margin: 0;
+                text-align: center;
+                justify-content: center;
             }
 
-            #start .badge-green { top: 22%; left: 24%; }
-            #start .badge-purple { top: 51%; left: 57%; }
-            #start .badge-cyan { top: 70%; left: 8%; }
-            #start .badge-yellow { top: 78%; left: 55%; }
+            #start .badge-green { transform: rotate(0deg); }
+            #start .badge-purple { transform: rotate(0deg); }
+            #start .badge-cyan { transform: rotate(0deg); }
+            #start .badge-yellow { transform: rotate(0deg); }
         }
 
     </style>
@@ -1568,7 +1591,7 @@
                     html += task;
                     html += '</label>';
                 });
-                аhtml += '</div>';
+                html += '</div>';
             }
 
             document.getElementById('diary-days').innerHTML = html;
