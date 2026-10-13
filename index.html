@@ -147,6 +147,8 @@
             color: #ffffff;
         }
 
+        #start .mobile-title-break { display: none; }
+
         #start .highlight {
             background-color: #ff9d22;
             padding: 5px 25px;
@@ -212,18 +214,41 @@
 
         @media (max-width: 768px) {
             #start h1 { font-size: 28px; }
+            #start .mobile-title-break { display: block; }
             #start header { padding: 20px; }
 
-            /* Плашки на мобильном — диагональная композиция как на референсе */
+            /* Поворачиваем декоративную волну на 90° только на мобильных */
+            #start {
+                background-image: none;
+            }
+            #start::before {
+                content: "";
+                position: absolute;
+                width: 100vh;
+                height: 100vw;
+                left: calc((100vw - 100vh) / 2);
+                top: calc((100vh - 100vw) / 2);
+                background-image: url('wave.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                transform: rotate(90deg);
+                transform-origin: center;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            /* Компактная группа плашек у нижнего края экрана */
             #start footer {
                 position: absolute;
                 left: 0;
                 right: 0;
                 bottom: 0;
-                height: 330px;
+                height: clamp(220px, 32vh, 330px);
                 padding: 0;
                 display: block;
                 z-index: 20;
+                overflow: visible;
             }
 
             #start .badge {
@@ -241,27 +266,30 @@
             }
 
             #start .badge-green {
-                top: 0;
+                top: 31%;
                 left: 26%;
                 transform: rotate(3deg);
             }
 
             #start .badge-purple {
-                top: 88px;
-                left: 50%;
-                transform: rotate(18deg);
+                top: 56%;
+                left: 45%;
+                transform: rotate(20deg);
+                z-index: 2;
             }
 
             #start .badge-cyan {
-                top: 175px;
-                left: 7%;
+                top: 73%;
+                left: 8%;
                 transform: rotate(-14deg);
+                z-index: 3;
             }
 
             #start .badge-yellow {
-                top: 240px;
-                left: 50%;
+                top: 81%;
+                left: 48%;
                 transform: rotate(5deg);
+                z-index: 4;
             }
         }
 
@@ -655,6 +683,13 @@
         #trainer-content button.task-btn * {
             color: #ffffff !important;
         }
+        @media (max-width: 768px) {
+            #start h1 .highlight {
+                display: inline-block;
+                width: auto;
+                margin-top: 10px;
+            }
+        }
 
     </style>
 </head>
@@ -668,7 +703,7 @@
         <main>
             <h1>
                 ПЕРЕСТАНЬ ОТКЛАДЫВАТЬ ПОДГОТОВКУ К ЕГЭ.<br>
-                НАЧНИ СЕГОДНЯ С <span class="highlight">ПланЕГЭ</span>
+                НАЧНИ СЕГОДНЯ <br class="mobile-title-break">С <span class="highlight">ПланЕГЭ</span>
             </h1>
             <a href="javascript:void(0)" onclick="start()" class="btn-try">Попробовать</a>
         </main>
