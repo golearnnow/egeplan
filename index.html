@@ -687,8 +687,57 @@
             #start h1 .highlight {
                 display: inline-block;
                 width: auto;
-                margin-top: 10px;
+                margin-top: 4px;
             }
+
+            /* Весь титульный экран помещается в высоту мобильного viewport */
+            #start {
+                height: 100vh;
+                height: 100svh;
+                min-height: 0;
+                overflow: hidden;
+            }
+
+            #start header {
+                flex: 0 0 auto;
+                padding: 10px 18px;
+            }
+
+            #start .logo { font-size: 18px; }
+
+            #start main {
+                flex: 1 1 auto;
+                min-height: 0;
+                padding: 4px 14px 8px;
+                justify-content: center;
+            }
+
+            #start h1 {
+                font-size: clamp(19px, 5.1vw, 27px);
+                line-height: 1.1;
+                margin: 0 0 12px;
+                max-width: 100%;
+            }
+
+            #start .btn-try {
+                font-size: 12px;
+                padding: 9px 26px;
+            }
+
+            #start footer {
+                height: clamp(155px, 25vh, 205px);
+                height: clamp(155px, 25svh, 205px);
+            }
+
+            #start .badge {
+                font-size: clamp(9px, 2.45vw, 18px);
+                padding: 9px clamp(14px, 3.6vw, 28px);
+            }
+
+            #start .badge-green { top: 19%; left: 25%; }
+            #start .badge-purple { top: 43%; left: 43%; }
+            #start .badge-cyan { top: 62%; left: 5%; }
+            #start .badge-yellow { top: 76%; left: 43%; }
         }
 
     </style>
